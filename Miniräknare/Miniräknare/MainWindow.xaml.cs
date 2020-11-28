@@ -90,11 +90,5 @@ namespace Miniräknare
         {
             Text1.Text = "";
         }
-
-
-
     }
     }
-
-
-
