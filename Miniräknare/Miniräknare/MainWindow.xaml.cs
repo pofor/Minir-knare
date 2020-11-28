@@ -29,17 +29,72 @@ namespace Miniräknare
         {
             if (e.Source is Button button)
             {
-                OkText.Text += button.Content;
+                Text1.Text += button.Content;
             }
             
         }
-        private void equal_Click(object sender, EventArgs e)
+        private void equal_Click(object sender, RoutedEventArgs e)
         {
-            double num1, num2;
-            if (Operation == )
+            
+            if (Text1.Text.Contains("+"))
             {
+                Text1.Text = Addition();
+            }
 
+            else if (Text1.Text.Contains("-"))
+            {
+                Text1.Text = Subtraction();
+            }
+            else if (Text1.Text.Contains("x"))
+            {
+                Text1.Text = Multiplication();
+            }
+            else if (Text1.Text.Contains("/"))
+            {
+                Text1.Text = Division();
             }
         }
+        private string Addition()
+        {
+            var numbers = Text1.Text.Split("+");
+            var number1 = Convert.ToDouble(numbers[0]);
+            var number2 = Convert.ToDouble(numbers[1]);
+            var sum = number1 + number2;
+            return sum + "";
+        }
+        private string Subtraction()
+        {
+            var numbers = Text1.Text.Split("-");
+            var number1 = Convert.ToDouble(numbers[0]);
+            var number2 = Convert.ToDouble(numbers[1]);
+            var sum = number1 - number2;
+            return sum + "";
+        }
+        private string Multiplication()
+        {
+            var numbers = Text1.Text.Split("x");
+            var number1 = Convert.ToDouble(numbers[0]);
+            var number2 = Convert.ToDouble(numbers[1]);
+            var sum = number1 * number2;
+            return sum + "";
+        }
+        private string Division()
+        {
+            var numbers = Text1.Text.Split("/");
+            var number1 = Convert.ToDouble(numbers[0]);
+            var number2 = Convert.ToDouble(numbers[1]);
+            var sum = number1 / number2;
+            return sum + "";
+        }
+        private void Clear(Object sender, RoutedEventArgs e)
+        {
+            Text1.Text = "";
+        }
+
+
+
     }
-}
+    }
+
+
+
