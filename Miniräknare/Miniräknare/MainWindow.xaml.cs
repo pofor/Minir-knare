@@ -53,6 +53,14 @@ namespace Miniräknare
             {
                 Text1.Text = Division();
             }
+            else if (Text1.Text.Contains("²"))
+            {
+                Text1.Text = Division();
+            }
+            else if (Text1.Text.Contains("√"))
+            {
+                Text1.Text = Division();
+            }
         }
         private string Addition()
         {
@@ -88,7 +96,26 @@ namespace Miniräknare
         }
         private void Clear(Object sender, RoutedEventArgs e)
         {
+
             Text1.Text = "";
+        }
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            Text1.Text = Text1.Text.Remove(Text1.Text.Length - 1);
+        }
+        private string Squared()
+        {
+            var numbers = Text1.Text.Split("²");
+            var number1 = Convert.ToDouble(numbers[0]);
+            var sum = Math.Pow(number1, 2);
+            return sum + "";
+        }
+        private string SquareRoot()
+        {
+            var numbers = Text1.Text.Split("√");
+            var number2 = Convert.ToDouble(numbers[1]);
+            var sum = Math.Sqrt(number2);
+            return sum + "";
         }
     }
     }
