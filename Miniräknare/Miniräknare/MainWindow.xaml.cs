@@ -101,7 +101,14 @@ namespace Miniräknare
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
-            Text1.Text = Text1.Text.Remove(Text1.Text.Length - 1);
+            if (Text1.Text.Length < 1)
+            {
+                Text1.Text = "";
+            }
+            else
+            {
+                Text1.Text = Text1.Text.Remove(Text1.Text.Length - 1);
+            }
         }
         private string Squared()
         {
